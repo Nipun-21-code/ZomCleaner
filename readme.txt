@@ -1,7 +1,28 @@
-ZomCleaner is a simple "reaper", it is a lightweight web-based dashboard designed to monitor and manage specific low-level system resources and help in optimisation.
-Clean0.go interacts with the "/proc" file system and triggers *kernel-level* actions, thus is designed specifically for compatibility with linux. 
-Clean1.go uses powershell commands to work on windows. **note**- Powershell needs to be run as administrator for full use of the program. [In the same folder as clean1.go yhe user should run setup.ps1 with ./setup.ps1, to enable running scripts use the follwing command "Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser"]
-.
-One can run the go file as "go run Clean0.go"; to start the server.
-.
-The UI interface is served on localhost port 8080 once the server is active. http://127.0.0.1:8080
+# ZomCleaner Technical Documentation
+
+ZomCleaner is a lightweight, web-based "reaper" designed to monitor and optimize low-level system resources.
+
+## Deployment Instructions
+
+### 1. Linux Environment (`Clean0.go`)
+Designed for direct kernel-level interaction via the `/proc` filesystem.
+* **Action:** Open terminal and execute:
+    `go run Clean0.go`
+
+### 2. Windows Environment (`Clean1.go`)
+Uses PowerShell integration for system management. 
+* **Prerequisite:** Launch PowerShell as **Administrator**.
+* **Configuration:** Enable script execution by running:
+    `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser`
+* **Initialization:** Within the project folder, execute:
+    `./setup.ps1`
+* **Action:** Start the server:
+    `go run Clean1.go`
+
+## Accessing the Interface
+Once the server is active, the optimization dashboard is accessible via any web browser.
+* **Local Address:** [http://127.0.0.1:8080](http://127.0.0.1:8080)
+
+## Operational Requirements
+* **Privileges:** Administrative/Root access is mandatory for full functionality.
+* **Compatibility:** Ensure you run the specific file (`Clean0` for Linux, `Clean1` for Windows) corresponding to your host operating system.
